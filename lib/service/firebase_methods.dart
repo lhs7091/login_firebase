@@ -16,4 +16,17 @@ class FirebaseMethos {
       return null;
     }
   }
+
+  // sign up email, password
+  Future<dynamic> signUp(String email, String passwd) async {
+    try {
+      UserCredential result = await _auth.createUserWithEmailAndPassword(
+          email: email, password: passwd);
+      User signUpUser = result.user;
+      return signUpUser;
+    } catch (e) {
+      print(e.toString());
+      return e;
+    }
+  }
 }

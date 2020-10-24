@@ -1,16 +1,17 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:login_firebase/export.dart';
+import 'package:login_firebase/widgets/signup_widget.dart';
 import 'package:toast/toast.dart';
 
-class LoginScreen extends StatefulWidget {
+class SignUpScreen extends StatefulWidget {
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _SignUpScreenState createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   FirebaseRepository _firebaseRepository = FirebaseRepository();
-  LoginWidgets _loginWidgets = LoginWidgets();
+  SignUpWidget _signUpWidget = SignUpWidget();
   bool isLoading = false;
 
   bool rememberMe = false;
@@ -46,76 +47,12 @@ class _LoginScreenState extends State<LoginScreen> {
               : Container(
                   height: double.infinity,
                   child: SingleChildScrollView(
-                    physics: AlwaysScrollableScrollPhysics(),
-                    padding: EdgeInsets.symmetric(
-                      vertical: 120.0,
-                      horizontal: 40.0,
-                    ),
-                    child: Column(
-                      children: [
-                        Text(
-                          'Sign In',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 30.0,
-                        ),
-                        _loginWidgets.buildEamilTF(),
-                        SizedBox(
-                          height: 30.0,
-                        ),
-                        _loginWidgets.buildPasswordTF(),
-                        _loginWidgets.buildForgotPasswordBtn(),
-                        buildRememberMeCheckBox(),
-                        buildLoginBtn(),
-                        _loginWidgets.buildSignInWithText(),
-                        Padding(
-                          padding: EdgeInsets.symmetric(vertical: 30.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              _loginWidgets.buildFacebookLoginBtn(),
-                              _loginWidgets.buildGoogleLoginBtn(),
-                            ],
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => SignUpScreen()));
-                          },
-                          child: RichText(
-                            text: TextSpan(
-                              children: [
-                                TextSpan(
-                                  text: 'Don\'t have an Account? ',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18.0,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: 'Sign Up',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                      physics: AlwaysScrollableScrollPhysics(),
+                      padding: EdgeInsets.symmetric(
+                        vertical: 120.0,
+                        horizontal: 40.0,
+                      ),
+                      child: _signUpWidget),
                 ),
         ],
       ),

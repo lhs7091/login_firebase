@@ -3,6 +3,8 @@
 export './screens/login_screen.dart';
 // Home screen
 export './screens/home_screen.dart';
+// sign up screen
+export './screens/signup_screen.dart';
 
 //////////////// Widget
 // Login
