@@ -9,8 +9,13 @@ export './screens/signup_screen.dart';
 //////////////// Widget
 // Login
 export './widgets/login_widget.dart';
+export './widgets/signup_widget.dart';
 
 //////////////// Service
 // for login by firebase
 export './service/firebase_repository.dart';
 export './service/firebase_methods.dart';
+
+/////////////// Provider
+// for user info
+export './providers/user_info_provider.dart';

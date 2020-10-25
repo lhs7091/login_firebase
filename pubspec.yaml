@@ -36,6 +36,9 @@ dependencies:
   ## announce of error or etc.
   toast: ^0.1.5
 
+  ## get, set user info by provider
+  provider: ^4.3.2+2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
