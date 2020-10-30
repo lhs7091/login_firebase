@@ -39,6 +39,9 @@ dependencies:
   ## get, set user info by provider
   provider: ^4.3.2+2
 
+  ## network image
+  cached_network_image:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

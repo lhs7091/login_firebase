@@ -19,3 +19,12 @@ export './service/firebase_methods.dart';
 /////////////// Provider
 // for user info
 export './providers/user_info_provider.dart';
+
+/////////////// Models
+///for post model
+export './models/post_model.dart';
+export './models/user_model.dart';
+
+/////////////// Const data
+///for init data
+export './const/init_data.dart';
