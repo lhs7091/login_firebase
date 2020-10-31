@@ -9,7 +9,10 @@ export './screens/signup_screen.dart';
 //////////////// Widget
 // Login
 export './widgets/login_widget.dart';
+// sign up
 export './widgets/signup_widget.dart';
+// post container
+export './widgets/post_container_widget.dart';
 
 //////////////// Service
 // for login by firebase

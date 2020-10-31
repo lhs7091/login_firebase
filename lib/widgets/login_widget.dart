@@ -367,7 +367,10 @@ class _LoginWidgetsState extends State<LoginWidgets> {
         // delete email and password from memory.
         email.clear();
         passwd.clear();
-
+        print(user.uid);
+        print(user.email);
+        print(user.displayName);
+        print(user.photoURL);
         // save user info
         _userInfoProvider.setCurrentUser(user);
 

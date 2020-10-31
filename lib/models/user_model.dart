@@ -1,13 +1,29 @@
-import 'package:meta/meta.dart';
+class UserModel {
+  String uid;
+  String name;
+  String imageUrl;
+  String email;
 
-class UserInfo {
-  final String name;
-  final String imageUrl;
-  final String email;
-
-  const UserInfo({
-    @required this.name,
-    @required this.imageUrl,
+  UserModel({
+    this.uid,
+    this.name,
+    this.imageUrl,
     this.email,
   });
+
+  void setUid(String uid) {
+    this.uid = uid;
+  }
+
+  void setName(String name) {
+    this.name = name;
+  }
+
+  void setImageUrl(String imageUrl) {
+    this.imageUrl = imageUrl;
+  }
+
+  void setEmail(String email) {
+    this.email = email;
+  }
 }

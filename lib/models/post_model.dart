@@ -2,7 +2,7 @@ import 'package:login_firebase/export.dart';
 import 'package:meta/meta.dart';
 
 class Post {
-  final UserInfo userInfo;
+  final UserModel userModel;
   final String caption;
   final String timeAgo;
   final String imageUrl;
@@ -11,7 +11,7 @@ class Post {
   final int shares;
 
   const Post({
-    @required this.userInfo,
+    @required this.userModel,
     @required this.caption,
     @required this.timeAgo,
     @required this.imageUrl,
