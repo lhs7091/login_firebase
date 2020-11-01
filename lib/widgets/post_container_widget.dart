@@ -50,7 +50,7 @@ class PostContainer extends StatelessWidget {
                           width: 8.0,
                         ),
                         Text(
-                          post.timeAgo,
+                          '${DateTime.fromMillisecondsSinceEpoch(post.timestamp.millisecondsSinceEpoch).toString().replaceRange(19, 23, "")}',
                           style: TextStyle(
                             color: Colors.grey[600],
                           ),

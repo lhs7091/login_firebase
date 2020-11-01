@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:login_firebase/export.dart';
 
 final UserModel currentUser = UserModel(
@@ -39,51 +40,51 @@ final List<Post> posts = [
   Post(
     userModel: currentUser,
     caption: 'Check out these cool puppers',
-    timeAgo: '58m',
     imageUrl:
         'https://images.unsplash.com/photo-1603989112393-db862d0176b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
     likes: 1202,
     comments: 184,
     shares: 96,
+    timestamp: Timestamp.now(),
   ),
   Post(
     userModel: onlineUsers[4],
     caption: 'This is a very good boi.',
-    timeAgo: '8hr',
     imageUrl:
         'https://images.unsplash.com/photo-1603279312618-5009a6caf08b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
     likes: 894,
     comments: 201,
     shares: 27,
+    timestamp: Timestamp.now(),
   ),
   Post(
     userModel: onlineUsers[3],
     caption: 'Adventure 🏔',
-    timeAgo: '15hr',
     imageUrl:
         'https://images.unsplash.com/photo-1603220485746-4395270d2aa4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
     likes: 722,
     comments: 183,
     shares: 42,
+    timestamp: Timestamp.now(),
   ),
   Post(
     userModel: onlineUsers[0],
     caption:
         'More placeholder text for the soul: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    timeAgo: '1d',
     imageUrl: null,
     likes: 482,
     comments: 37,
     shares: 9,
+    timestamp: Timestamp.now(),
   ),
   Post(
     userModel: onlineUsers[1],
     caption: 'A classic.',
-    timeAgo: '1d',
     imageUrl:
         'https://images.unsplash.com/photo-1568607576135-cff32f62926a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1427&q=80',
     likes: 1523,
     shares: 129,
     comments: 301,
+    timestamp: Timestamp.now(),
   )
 ];

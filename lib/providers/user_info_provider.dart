@@ -18,11 +18,12 @@ class UserInfoProvider with ChangeNotifier {
   UserModel getCurrentUserInfo() => _currentUserInfo;
 
   void setCurrentUserInfo() {
-    _currentUserInfo = new UserModel();
-    _currentUserInfo.setUid(_currentUserFirebase.uid);
-    _currentUserInfo.setName(_currentUserFirebase.displayName);
-    _currentUserInfo.setEmail(_currentUserFirebase.email);
-    _currentUserInfo.setImageUrl(_currentUserFirebase.photoURL);
+    _currentUserInfo = UserModel.fromMap({
+      'uid': _currentUserFirebase.uid,
+      'name': _currentUserFirebase.displayName,
+      'email': _currentUserFirebase.email,
+      'imageUrl': _currentUserFirebase.displayName,
+    });
     notifyListeners();
   }
 }
