@@ -1,3 +1,5 @@
+import 'package:login_firebase/export.dart';
+
 class UserModel {
   String uid;
   String name;
@@ -12,26 +14,35 @@ class UserModel {
   });
 
   UserModel.fromJson(Map<String, dynamic> json) {
-    uid = json['uid'];
-    name = json['name'];
-    imageUrl = json['imageUrl'];
-    email = json['email'];
+    uid = json[UID_FIELD];
+    name = json[NAME_FIELD];
+    imageUrl = json[IMAGEURL_FIELD];
+    email = json[EMAIL_FIELD];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['uid'] = this.uid;
-    data['name'] = this.name;
-    data['imageUrl'] = this.imageUrl;
-    data['email'] = this.email;
+    data[UID_FIELD] = this.uid;
+    data[NAME_FIELD] = this.name;
+    data[IMAGEURL_FIELD] = this.imageUrl;
+    data[EMAIL_FIELD] = this.email;
     return data;
   }
 
   UserModel.fromMap(Map<String, dynamic> map) {
-    this.uid = map['uid'];
-    this.name = map['name'];
-    this.imageUrl = map['imageUrl'];
-    this.email = map['email'];
+    this.uid = map[UID_FIELD];
+    this.name = map[NAME_FIELD];
+    this.imageUrl = map[IMAGEURL_FIELD];
+    this.email = map[EMAIL_FIELD];
+  }
+
+  Map toMap(UserModel userModel) {
+    var data = Map<String, dynamic>();
+    data[UID_FIELD] = userModel.uid;
+    data[NAME_FIELD] = userModel.name;
+    data[IMAGEURL_FIELD] = userModel.imageUrl;
+    data[EMAIL_FIELD] = userModel.email;
+    return data;
   }
 
   void setUid(String uid) {

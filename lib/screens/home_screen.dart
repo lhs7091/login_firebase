@@ -18,7 +18,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     _userInfoProvider = Provider.of<UserInfoProvider>(context);
     _currentUser = _userInfoProvider.getCurrentUserInfo();
-
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -57,7 +56,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: IconButton(
                   icon: Icon(MdiIcons.plus),
                   color: Colors.black,
-                  onPressed: () {},
+                  onPressed: () {
+                    print('new post');
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => PostWriteScreen()));
+                  },
                 ),
               ),
               Container(

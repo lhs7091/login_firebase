@@ -11,19 +11,13 @@ class UserInfoProvider with ChangeNotifier {
 
   void setCurrentUser(User user) {
     _currentUserFirebase = user;
-    setCurrentUserInfo();
     notifyListeners();
   }
 
   UserModel getCurrentUserInfo() => _currentUserInfo;
 
-  void setCurrentUserInfo() {
-    _currentUserInfo = UserModel.fromMap({
-      'uid': _currentUserFirebase.uid,
-      'name': _currentUserFirebase.displayName,
-      'email': _currentUserFirebase.email,
-      'imageUrl': _currentUserFirebase.displayName,
-    });
+  void setCurrentUserInfo(UserModel userModel) {
+    _currentUserInfo = userModel;
     notifyListeners();
   }
 }

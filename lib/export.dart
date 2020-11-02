@@ -5,6 +5,8 @@ export './screens/login_screen.dart';
 export './screens/home_screen.dart';
 // sign up screen
 export './screens/signup_screen.dart';
+// post write screen
+export './screens/post_write_screen.dart';
 
 //////////////// Widget
 // Login
@@ -13,6 +15,8 @@ export './widgets/login_widget.dart';
 export './widgets/signup_widget.dart';
 // post container
 export './widgets/post_container_widget.dart';
+// post form
+export './widgets/post_form_widget.dart';
 
 //////////////// Service
 // for login by firebase
@@ -31,3 +35,4 @@ export './models/user_model.dart';
 /////////////// Const data
 ///for init data
 export './const/init_data.dart';
+export './const/strings.dart';

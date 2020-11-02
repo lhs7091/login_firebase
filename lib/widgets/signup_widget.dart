@@ -230,6 +230,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
           Toast.show(e.message, context,
               duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
         } else {
+          _firebaseRepository.saveNewUser(user);
           Toast.show("Sign Up Complete\nPlease Login again", context,
               duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
           Navigator.push(

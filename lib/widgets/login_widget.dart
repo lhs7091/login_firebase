@@ -360,23 +360,20 @@ class _LoginWidgetsState extends State<LoginWidgets> {
     // there is no data in database.
     // so carry out firebase auth and save in firestore
     _firebaseRepository.signIn(email.text, passwd.text).then((User user) {
-      setState(() {
-        isLoading = false;
-      });
       if (user != null) {
         // delete email and password from memory.
         email.clear();
         passwd.clear();
-        print(user.uid);
-        print(user.email);
-        print(user.displayName);
-        print(user.photoURL);
-        // save user info
-        _userInfoProvider.setCurrentUser(user);
 
-        // moving home screen after user auth
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => HomeScreen()));
+        _firebaseRepository.findCurrentUser(user.uid).then((userModel) {
+          _userInfoProvider.setCurrentUserInfo(userModel);
+          setState(() {
+            isLoading = false;
+          });
+          // moving home screen after user auth
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => HomeScreen()));
+        });
       } else {
         Toast.show("Please check your email or password", context,
             duration: Toast.LENGTH_SHORT, gravity: Toast.BOTTOM);

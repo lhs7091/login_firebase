@@ -1,7 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:login_firebase/export.dart';
 
 class FirebaseMethos {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   // email password authentication
   Future<User> signIn(String email, String passwd) async {
@@ -27,5 +31,35 @@ class FirebaseMethos {
       print(e.toString());
       return e;
     }
+  }
+
+  // find current user info in DB
+  Future<dynamic> findCurrentUser(String uid) async {
+    QuerySnapshot result = await firestore
+        .collection(USERS_COLLECTION)
+        .where(UID_FIELD, isEqualTo: uid)
+        .get();
+    print(result.docs[0].data().toString());
+    if (result.docs.length != 0) {
+      UserModel userModel = UserModel.fromMap(result.docs[0].data());
+      return userModel;
+    } else {
+      return null;
+    }
+  }
+
+  // save new user in DB(Firestore)
+  saveNewUser(User user) async {
+    UserModel userModel = UserModel(
+      uid: user.uid,
+      name: user.displayName,
+      email: user.email,
+      imageUrl: user.photoURL,
+    );
+
+    await firestore
+        .collection(USERS_COLLECTION)
+        .doc(user.uid)
+        .set(userModel.toMap(userModel));
   }
 }

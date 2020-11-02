@@ -11,4 +11,11 @@ class FirebaseRepository {
   // call sign up function by firebase with email, passwd
   Future<dynamic> signUp(String email, String passwd) =>
       _firebaseMethos.signUp(email, passwd);
+
+  // find current user in DB(Firestore)
+  Future<dynamic> findCurrentUser(String uid) =>
+      _firebaseMethos.findCurrentUser(uid);
+
+  // save new user in DB(Firestore)
+  Future<dynamic> saveNewUser(User user) => _firebaseMethos.saveNewUser(user);
 }

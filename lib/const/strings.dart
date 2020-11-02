@@ -1,0 +1,12 @@
+const String USERS_COLLECTION = "users";
+const String POSTS_COLLECTION = "posts";
+const String UID_FIELD = "uid";
+const String NAME_FIELD = "name";
+const String EMAIL_FIELD = "email";
+const String IMAGEURL_FIELD = "imageUrl";
+const String USERMODEL_IFIELD = "userModel";
+const String CAPTION_FIELD = "caption";
+const String LIKES_FIELD = "likes";
+const String COMMENTS_FIELD = "comments";
+const String SHARES_FIELD = "shares";
+const String TIMESTAMP_FIELD = "timestamp";
