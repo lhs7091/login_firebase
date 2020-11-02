@@ -1,8 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:login_firebase/export.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
+
+import '../export.dart';
+import '../export.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -79,11 +83,26 @@ class _HomeScreenState extends State<HomeScreen> {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                 ),
-                child: IconButton(
-                  icon: Icon(Icons.person_outline_sharp),
-                  color: Colors.black,
-                  onPressed: () {},
+                child: PopupMenuButton<String>(
+                  icon: Icon(
+                    Icons.person_outline_sharp,
+                    color: Colors.black,
+                  ),
+                  onSelected: choiceAction,
+                  itemBuilder: (BuildContext context) {
+                    return UserAccountPopupConst.choices.map((String choice) {
+                      return PopupMenuItem(
+                        value: choice,
+                        child: Text(choice),
+                      );
+                    }).toList();
+                  },
                 ),
+                // IconButton(
+                //   icon: Icon(Icons.person_outline_sharp),
+                //   color: Colors.black,
+                //   onPressed: () {},
+                // ),
               ),
             ],
           ),
@@ -96,5 +115,21 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
     );
+  }
+
+  void choiceAction(String choice) {
+    if (choice == UserAccountPopupConst.ACCOUNT) {
+      print('account modify');
+    } else if (choice == UserAccountPopupConst.LOGOUT) {
+      logout();
+    }
+  }
+
+  Future<Null> logout() async {
+    await FirebaseAuth.instance.signOut();
+
+    Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => MyApp()),
+        (Route<dynamic> route) => false);
   }
 }

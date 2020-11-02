@@ -1,3 +1,4 @@
+export 'package:login_firebase/main.dart';
 //////////////// Screens
 // Login screen
 export './screens/login_screen.dart';
@@ -36,3 +37,6 @@ export './models/user_model.dart';
 ///for init data
 export './const/init_data.dart';
 export './const/strings.dart';
+
+///for user account popup const
+export './const/user_account_popup.dart';
