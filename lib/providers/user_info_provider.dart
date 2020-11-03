@@ -20,4 +20,14 @@ class UserInfoProvider with ChangeNotifier {
     _currentUserInfo = userModel;
     notifyListeners();
   }
+
+  void setNewName(String name) {
+    _currentUserInfo.setName(name);
+    notifyListeners();
+  }
+
+  void setNewProfileImage(String newImageDownloadUrl) {
+    _currentUserInfo.setImageUrl(newImageDownloadUrl);
+    notifyListeners();
+  }
 }

@@ -39,7 +39,6 @@ class FirebaseMethos {
         .collection(USERS_COLLECTION)
         .where(UID_FIELD, isEqualTo: uid)
         .get();
-    print(result.docs[0].data().toString());
     if (result.docs.length != 0) {
       UserModel userModel = UserModel.fromMap(result.docs[0].data());
       return userModel;
@@ -61,5 +60,12 @@ class FirebaseMethos {
         .collection(USERS_COLLECTION)
         .doc(user.uid)
         .set(userModel.toMap(userModel));
+  }
+
+  Future<String> updateUserInfo(UserModel user) async {
+    await firestore
+        .collection(USERS_COLLECTION)
+        .doc(user.uid)
+        .update(user.toMap(user));
   }
 }

@@ -5,9 +5,6 @@ import 'package:login_firebase/export.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
 
-import '../export.dart';
-import '../export.dart';
-
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -98,11 +95,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     }).toList();
                   },
                 ),
-                // IconButton(
-                //   icon: Icon(Icons.person_outline_sharp),
-                //   color: Colors.black,
-                //   onPressed: () {},
-                // ),
               ),
             ],
           ),
@@ -120,6 +112,8 @@ class _HomeScreenState extends State<HomeScreen> {
   void choiceAction(String choice) {
     if (choice == UserAccountPopupConst.ACCOUNT) {
       print('account modify');
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => UserAccountSettingScreen()));
     } else if (choice == UserAccountPopupConst.LOGOUT) {
       logout();
     }

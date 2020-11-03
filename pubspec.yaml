@@ -33,6 +33,7 @@ dependencies:
   firebase_auth: ^0.18.1+2
   firebase_core: ^0.5.0+1
   cloud_firestore: ^0.14.2
+  firebase_storage: ^4.0.1
 
   ## announce of error or etc.
   toast: ^0.1.5
@@ -45,7 +46,9 @@ dependencies:
 
   ## icons
   material_design_icons_flutter: 
-  
+
+  ## open image from internal disk
+  image_picker: ^0.6.4 
 
 dev_dependencies:
   flutter_test:

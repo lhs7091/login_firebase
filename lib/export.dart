@@ -8,6 +8,8 @@ export './screens/home_screen.dart';
 export './screens/signup_screen.dart';
 // post write screen
 export './screens/post_write_screen.dart';
+// user account setting screen
+export './screens/user_account_setting.dart';
 
 //////////////// Widget
 // Login

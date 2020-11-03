@@ -18,4 +18,7 @@ class FirebaseRepository {
 
   // save new user in DB(Firestore)
   Future<dynamic> saveNewUser(User user) => _firebaseMethos.saveNewUser(user);
+
+  Future<String> updateUserInfo(UserModel user) =>
+      _firebaseMethos.updateUserInfo(user);
 }
