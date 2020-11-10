@@ -297,8 +297,9 @@ class _UserAccountSettingScreenState extends State<UserAccountSettingScreen> {
 
   void uploadImageToFirestoreAndStorage(File newImageFile) {
     String fileName = "${_currentUser.uid}_${DateTime.now()}";
-    StorageReference storageReference =
-        FirebaseStorage.instance.ref().child(fileName);
+    StorageReference storageReference = FirebaseStorage.instance
+        .ref()
+        .child('${_currentUser.uid}/profile/${fileName}');
     StorageUploadTask storageUploadTask =
         storageReference.putFile(newImageFile);
     StorageTaskSnapshot storageTaskSnapshot;

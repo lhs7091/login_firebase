@@ -23,9 +23,7 @@ class _PostWriteScreenState extends State<PostWriteScreen> {
       appBar: appBar(),
       body: ListView(
         children: [
-          PostFormWidget(
-            loading: false,
-          ),
+          PostFormWidget(),
         ],
       ),
     );
@@ -58,30 +56,6 @@ class _PostWriteScreenState extends State<PostWriteScreen> {
       ),
       centerTitle: false,
       actions: [
-        Container(
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-          ),
-          child: IconButton(
-            icon: Icon(MdiIcons.upload),
-            color: Colors.black,
-            onPressed: () {
-              print('Post');
-            },
-          ),
-        ),
-        Container(
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-          ),
-          child: IconButton(
-            icon: Icon(MdiIcons.pictureInPictureBottomRight),
-            color: Colors.black,
-            onPressed: () {
-              print('add picture');
-            },
-          ),
-        ),
         Container(
           decoration: BoxDecoration(
             shape: BoxShape.circle,

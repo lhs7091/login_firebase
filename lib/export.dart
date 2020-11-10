@@ -29,6 +29,8 @@ export './service/firebase_methods.dart';
 /////////////// Provider
 // for user info
 export './providers/user_info_provider.dart';
+// for post list
+export './providers/post_provider.dart';
 
 /////////////// Models
 ///for post model

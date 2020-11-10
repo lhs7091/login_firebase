@@ -14,11 +14,37 @@ class _HomeScreenState extends State<HomeScreen> {
   UserInfoProvider _userInfoProvider;
 
   UserModel _currentUser;
+  List<Post> _postList;
+
+  bool isPostLoading = false;
+
+  @override
+  void initState() {
+    super.initState();
+    setPostList();
+  }
+
+  setPostList() async {
+    var postProvider = Provider.of<PostProvider>(context, listen: false);
+    await postProvider.setPostList().then((_) {
+      setState(() {
+        _postList = postProvider.getPostList();
+      });
+      if (_postList != null) {
+        postProvider.setUserModel().then((_) {
+          setState(() {
+            isPostLoading = true;
+          });
+        });
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     _userInfoProvider = Provider.of<UserInfoProvider>(context);
     _currentUser = _userInfoProvider.getCurrentUserInfo();
+
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -100,9 +126,13 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate((context, index) {
-              final Post post = posts[index];
-              return PostContainer(post: post);
-            }, childCount: posts.length),
+              Post post = _postList[index];
+              return isPostLoading
+                  ? PostContainer(post: post)
+                  : Center(
+                      child: CircularProgressIndicator(),
+                    );
+            }, childCount: _postList != null ? _postList.length : 0),
           ),
         ],
       ),

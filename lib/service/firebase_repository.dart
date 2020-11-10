@@ -21,4 +21,15 @@ class FirebaseRepository {
 
   Future<String> updateUserInfo(UserModel user) =>
       _firebaseMethos.updateUserInfo(user);
+
+  Future<dynamic> addPost(Post post) => _firebaseMethos.addPost(post);
+
+  Future<List<Post>> getAllPosts() async {
+    List<Post> postList;
+    print('repository start');
+    postList = await _firebaseMethos.getAllPosts();
+    return postList;
+  }
+
+  Future<UserModel> findUser(String uid) => _firebaseMethos.findUser(uid);
 }

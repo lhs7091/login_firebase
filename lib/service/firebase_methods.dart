@@ -68,4 +68,35 @@ class FirebaseMethos {
         .doc(user.uid)
         .update(user.toMap(user));
   }
+
+  Future<dynamic> addPost(Post post) async {
+    await firestore.collection(POSTS_COLLECTION).doc().set(post.toMap(post));
+  }
+
+  Future<List<Post>> getAllPosts() async {
+    print('methods getAllposts');
+    List<Post> postList = List<Post>();
+    QuerySnapshot result = await firestore
+        .collection(POSTS_COLLECTION)
+        .orderBy(TIMESTAMP_FIELD, descending: true)
+        .get();
+    if (result.docs.length != 0) {
+      result.docs.forEach((element) {
+        postList.add(Post.fromMap(element.data()));
+      });
+    }
+    return postList;
+  }
+
+  Future<UserModel> findUser(String uid) async {
+    UserModel userModel;
+    QuerySnapshot result = await firestore
+        .collection(USERS_COLLECTION)
+        .where(UID_FIELD, isEqualTo: uid)
+        .get();
+    if (result.docs.length != 0) {
+      userModel = UserModel.fromMap(result.docs[0].data());
+    }
+    return userModel;
+  }
 }
