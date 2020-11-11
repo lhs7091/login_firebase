@@ -64,7 +64,8 @@ class _PostWriteScreenState extends State<PostWriteScreen> {
             icon: Icon(Icons.arrow_back),
             color: Colors.black,
             onPressed: () {
-              print('cancel');
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()));
             },
           ),
         ),

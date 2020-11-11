@@ -184,6 +184,9 @@ class _PostFormWidgetState extends State<PostFormWidget> {
     post.setImageUrl(postImage);
     post.setUid(_currentUser.uid);
     post.setTimeStamp(Timestamp.now());
+    post.setLikes(0);
+    post.setComments(0);
+    post.setShares(0);
 
     _firebaseRepository.addPost(post).then((value) {
       setState(() {

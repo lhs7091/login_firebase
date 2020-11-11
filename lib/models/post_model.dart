@@ -100,4 +100,16 @@ class Post {
   setTimeStamp(Timestamp timestamp) {
     this.timestamp = timestamp;
   }
+
+  void setLikes(int likes) {
+    this.likes = likes;
+  }
+
+  void setComments(int comments) {
+    this.comments = comments;
+  }
+
+  void setShares(int shares) {
+    this.shares = shares;
+  }
 }

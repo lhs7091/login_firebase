@@ -124,16 +124,18 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate((context, index) {
-              Post post = _postList[index];
-              return isPostLoading
-                  ? PostContainer(post: post)
-                  : Center(
-                      child: CircularProgressIndicator(),
-                    );
-            }, childCount: _postList != null ? _postList.length : 0),
-          ),
+          isPostLoading
+              ? SliverList(
+                  delegate: SliverChildBuilderDelegate((context, index) {
+                    Post post = _postList[index];
+                    return PostContainer(post: post);
+                  }, childCount: _postList != null ? _postList.length : 0),
+                )
+              : SliverToBoxAdapter(
+                  child: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                )
         ],
       ),
     );
