@@ -1,6 +1,7 @@
 # 게시판
 
 flutter, firebase를 이용한 회원가입, 로그인, 게시판 기능 구현
+유저정보, 게시글의 경우 provider를 이용하여 main 하위의 widget들이 같은 정보를 공유 할 수 있도록 함.
 
 
 ## Screens
